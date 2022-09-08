@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Card from '../ui/Card';
+import FormLogin from '../ui/FormLogin';
+import FormReg from '../ui/FormReg';
 
 function Main({ allTeas }) {
   const [teas, setTeas] = useState(allTeas || null);
@@ -35,51 +37,11 @@ function Main({ allTeas }) {
         >
           <div className="authBlock__leftBlock">
             <h1>Зарегестрируйтесь</h1>
-            <form>
-              <div className="form-group mb-3">
-                <label htmlFor="exampleInputEmail1">
-                  Имя
-                  <input name="name" type="text" className="form-control input" id="exampleInputEmail1" />
-                </label>
-              </div>
-              <div className="form-group mb-3">
-                <label htmlFor="exampleInputPassword1">
-                  Фамилия
-                  <input name="password" type="еуче" className="form-control input" id="exampleInputPassword1" />
-                </label>
-              </div>
-              <div className="form-group mb-3">
-                <label htmlFor="exampleInputEmail1">
-                  Логин
-                  <input name="name" type="text" className="form-control input" id="exampleInputEmail1" />
-                </label>
-              </div>
-              <div className="form-group mb-3">
-                <label htmlFor="exampleInputPassword1">
-                  Пароль
-                  <input name="password" type="password" className="form-control input" id="exampleInputPassword1" />
-                </label>
-              </div>
-              <button type="submit" className="btn btn-outline-success mb-3">Авторизоваться</button>
-            </form>
+            <FormReg />
           </div>
           <div className="authBlock__rightBlock">
             <h1>Авторизуйтесь</h1>
-            <form>
-              <div className="form-group mb-3">
-                <label htmlFor="exampleInputEmail1">
-                  Логин
-                  <input name="name" type="text" className="form-control input" id="exampleInputEmail1" aria-describedby="emailHelp" />
-                </label>
-              </div>
-              <div className="form-group mb-3">
-                <label htmlFor="exampleInputPassword1">
-                  Пароль
-                  <input name="password" type="password" className="form-control input" id="exampleInputPassword1" />
-                </label>
-              </div>
-              <button type="submit" className="btn btn-outline-success mb-3">Авторизоваться</button>
-            </form>
+            <FormLogin />
           </div>
         </div>
       </div>
