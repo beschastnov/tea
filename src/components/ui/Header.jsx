@@ -25,6 +25,7 @@ function Header({ session, setSession }) {
               <ul className="no-bullets no-margin no-padding right">
                 {!session ? (
                   <>
+                    <li className="pipe-separate t-light-green left"><Link to="/teas">Чаи мира</Link></li>                  
                     <li className="pipe-separate t-light-green left"><Link to="/">home</Link></li>
                     <li className="pipe-separate t-light-green left"><Link to="/login">login</Link></li>
                     <li className="pipe-separate t-light-green left"><Link to="/registration">registration</Link></li>
