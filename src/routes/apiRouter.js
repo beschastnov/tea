@@ -26,7 +26,7 @@ router.post('/add/comment', async (req, res) => {
   } catch (e) {
     console.log(e);
   }
-});
+
 
 router.get('/tea/:id/allComents', async (req, res) => {
   try {
@@ -36,6 +36,12 @@ router.get('/tea/:id/allComents', async (req, res) => {
   } catch (e) {
     console.log(e);
   }
+ });
+
+router.post('/addtea', async (req, res) => {
+  const newtea = req.body;
+  const newTea = await Tea.create(newtea);
+  res.json(newTea);
 });
 
 export default router;
