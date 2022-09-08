@@ -24,6 +24,16 @@ const sessionConfig = {
 };
 app.use(session(sessionConfig));
 
+app.use((req, res, next) => {
+  res.locals.path = req.originalUrl;
+  res.locals.session = req.session?.userId ? {
+    userId: req.session.userId,
+    userEmail: req.session.userEmail,
+    userName: req.session.userName,
+  } : null;
+  next();
+});
+
 app.use(express.static('public'));
 app.use(express.json());
 app.use(morgan('dev'));

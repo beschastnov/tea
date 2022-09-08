@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from '../ui/FormLogin';
 
-function Login() {
+function Login({ session, setSession }) {
   return (
     <div
       className="form-block"
@@ -14,7 +14,7 @@ function Login() {
         height: '400px',
       }}
     >
-      <Form />
+      <Form session={session} setSession={setSession}/>
     </div>
   );
 }

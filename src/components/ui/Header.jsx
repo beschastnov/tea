@@ -2,15 +2,17 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Header({ session, setSession }) {
-  
   const navigate = useNavigate();
-  
-  const logoutHandler = async () => {
+
+  const logoutHandler = async (e) => {
+    e.preventDefault();
     const response = await fetch('/auth/logout');
     if (response.ok) {
       navigate('/');
+      setSession(null);
     }
   };
+
   return (
     <div>
       <div className="header">
@@ -20,12 +22,20 @@ function Header({ session, setSession }) {
               <Link to="/"><img src="https://images.squarespace-cdn.com/content/v1/60d0c4dac6973748d5d9a7f5/1624916195210-MO3DSK8SGUW508HG14QN/WEBLOGO.png" /></Link>
             </div>
             <div className="header__right-block">
-              <Link to="/login">Авторизация</Link>
-              <Link to="/registration">Регистрация</Link>
-              <p>Личный кабинет</p>
-              <p>Имя пользователя</p>
-              <Link to="/adminprofile">Админка</Link>
-              <Link onClick={logoutHandler} to="/">Выйти</Link>
+              <ul className="no-bullets no-margin no-padding right">
+                {!session ? (
+                  <>
+                    <li className="pipe-separate t-light-green left"><Link to="/">home</Link></li>
+                    <li className="pipe-separate t-light-green left"><Link to="/login">login</Link></li>
+                    <li className="pipe-separate t-light-green left"><Link to="/registration">registration</Link></li>
+                  </>
+                ) : (
+                  <>
+                    <li className="pipe-separate t-light-green left"><Link to="/adminprofile">adminka</Link></li>
+                    <li onClick={logoutHandler} className="pipe-separate t-light-green left"><Link to="/auth/logout">logout</Link></li>
+                  </>
+                )}
+              </ul>
             </div>
           </div>
         </div>

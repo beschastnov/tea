@@ -6,18 +6,16 @@ import Registration from './pages/Registration';
 import Main from './pages/Main';
 import AdminProfile from './pages/AdminProfile';
 
-
 function App({ allTeas, userSession }) {
-
-  const [session, setSession] = useState(userSession || null);
+  const [session, setSession] = useState(userSession);
 
   return (
     <>
-      <Header session={session} setSession={setSession}/>
+      <Header session={session} setSession={setSession} />
       <Routes>
         <Route path="/" element={<Main allTeas={allTeas} />} />
-        <Route path="/registration" element={<Registration />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration session={session} setSession={setSession} />} />
+        <Route path="/login" element={<Login session={session} setSession={setSession} />} />
         <Route path="/adminprofile" element={<AdminProfile />} />
       </Routes>
     </>

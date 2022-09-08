@@ -118,14 +118,14 @@ h1, h2, h3, h4, h5, h6 {
       -ms-flex-align: center;
           align-items: center;
 }
-.header__right-block p {
+.header__right-block li {
   font-family: "Hina Mincho", serif;
   color: green;
   padding-right: 20px;
   -webkit-transition: all 0.8s ease 0s;
   transition: all 0.8s ease 0s;
 }
-.header__right-block p:hover {
+.header__right-block li:hover {
   -webkit-transform: scale(1.1, 1.1);
           transform: scale(1.1, 1.1);
 }
