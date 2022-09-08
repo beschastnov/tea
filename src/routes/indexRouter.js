@@ -31,4 +31,13 @@ router.get('/login', async (req, res) => {
   res.end(html);
 });
 
+router.get('/teas', async (req, res) => {
+  const allTeas = await Tea.findAll();
+  const initState = { path: req.originalUrl, allTeas };
+  const layout = React.createElement(Layout, { initState });
+  const html = renderToString(layout);
+  res.write('<!DOCTYPE html>');
+  res.end(html);
+});
+
 export default router;
