@@ -4,8 +4,9 @@ import Header from './ui/Header';
 import Login from './pages/Login';
 import Registration from './pages/Registration';
 import Main from './pages/Main';
+import TeaCardPage from './pages/TeaCardPage';
 
-function App({ allTeas }) {
+function App({ allTeas, allComents }) {
   return (
     <>
       <Header />
@@ -13,6 +14,7 @@ function App({ allTeas }) {
         <Route path="/" element={<Main allTeas={allTeas} />} />
         <Route path="/registration" element={<Registration />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/tea/:id" element={<TeaCardPage allComents={allComents} />} />
       </Routes>
     </>
   );
