@@ -8,8 +8,8 @@ import TeaCardPage from './pages/TeaCardPage';
 import Teas from './ui/Teas';
 import AdminProfile from './pages/AdminProfile';
 
-function App({ allTeas, userSession, allComents }) {
-  const [session, setSession] = useState(userSession || null);
+function App({ allTeas, userSession }) {
+  const [session, setSession] = useState(userSession);
 
   return (
     <>
@@ -17,8 +17,8 @@ function App({ allTeas, userSession, allComents }) {
       <Routes>
         <Route path="/" element={<Main allTeas={allTeas} />} />
         <Route path="/teas" element={<Teas allTeas={allTeas} />} />
-        <Route path="/registration" element={<Registration />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/registration" element={<Registration session={session} setSession={setSession} />} />
+        <Route path="/login" element={<Login session={session} setSession={setSession} />} />
         <Route path="/tea/:id" element={<TeaCardPage allComents={allComents} />} />
         <Route path="/adminprofile" element={<AdminProfile />} />
 

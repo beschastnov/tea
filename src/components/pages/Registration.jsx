@@ -1,7 +1,7 @@
 import React from 'react';
 import FormReg from '../ui/FormReg';
 
-export default function Registration() {
+export default function Registration({ session, setSession }) {
   return (
     <div
       className="form-block"
@@ -11,7 +11,7 @@ export default function Registration() {
         alignItems: 'center',
       }}
     >
-      <FormReg />
+      <FormReg session={session} setSession={setSession} />
     </div>
   );
 }

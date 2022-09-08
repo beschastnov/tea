@@ -2,12 +2,14 @@ import express from 'express';
 import { renderToString } from 'react-dom/server';
 import React from 'react';
 import Layout from '../components/Layout';
-import { Tea, Coment } from '../db/models';
+import { Tea, User, Coment } from '../db/models';
+
 
 const router = express.Router();
 
 router.get('/', async (req, res) => {
   const userSession = req.session;
+  // console.log(userSession);
   const allTeas = await Tea.findAll();
   const initState = { path: req.originalUrl, allTeas, userSession };
   const layout = React.createElement(Layout, { initState });

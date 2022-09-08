@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-export default function FormReg() {
+export default function FormReg({ session, setSession }) {
   const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     fName: '', lName: '', login: '', pass: '',
@@ -21,7 +21,9 @@ export default function FormReg() {
       body: JSON.stringify(inputs),
     });
     if (response.ok) {
+      const data = await response.json();
       navigate('/');
+      setSession(data);
     }
   };
 
