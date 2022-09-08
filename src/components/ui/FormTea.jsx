@@ -28,22 +28,22 @@ function FormTea() {
   return (
     <form onSubmit={submitHandler}>
       <div className="form-group">
-        <label htmlFor="exampleInputEmail1">Название чая</label>
+        <label>Название чая</label>
         <input type="text" value={inputs.name} onChange={changeHandler} name="name" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Название чая" />
       </div>
       <div className="form-group">
-        <label htmlFor="exampleInputEmail1">Место культивации</label>
+        <label>Место культивации</label>
         <input type="text" value={inputs.place} onChange={changeHandler} name="place" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Место культивации" />
       </div>
       <div className="form-group">
-        <label htmlFor="exampleInputEmail1">Изображение</label>
+        <label>Изображение</label>
         <input type="text" value={inputs.img} onChange={changeHandler} name="img" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Ссылка на изображение" />
       </div>
       <div className="form-group">
-        <label htmlFor="exampleInputEmail1">Описание чая</label>
+        <label>Описание чая</label>
         <input type="text" value={inputs.info} onChange={changeHandler} name="info" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Описание чая" />
       </div>
-      <button type="submit" class="btn btn-primary">Добавить</button>
+      <button type="submit" className="btn btn-primary">Добавить</button>
     </form>
   );
 }

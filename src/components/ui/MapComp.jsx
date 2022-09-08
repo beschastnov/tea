@@ -5,7 +5,6 @@ export default function MapComp({ allTeas }) {
   const oneTea = allTeas[1];
   const place1 = oneTea.place;
   const nameTea = oneTea.name;
-  console.log(nameTea);
   //  из этого пропса нужно вытаскивать чай и его локацию и вставлять локацию а placemark
   return (
     <YMaps>
