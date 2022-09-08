@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Card from '../ui/Card';
 import FormLogin from '../ui/FormLogin';
 import FormReg from '../ui/FormReg';
+import MapComp from '../ui/MapComp';
 
 function Main({ allTeas }) {
   const [teas, setTeas] = useState(allTeas || null);
@@ -45,7 +46,9 @@ function Main({ allTeas }) {
           </div>
         </div>
       </div>
-
+      <div className="map">
+        <MapComp allTeas={allTeas} />
+      </div>
     </>
   );
 }
