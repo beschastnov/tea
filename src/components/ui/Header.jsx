@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
-function Header() {
+function Header({ session, setSession }) {
+  
+  const navigate = useNavigate();
+  
   const logoutHandler = async () => {
     const response = await fetch('/auth/logout');
     if (response.ok) {
-      console.log('logout работает');
+      navigate('/');
     }
   };
   return (

@@ -15,12 +15,13 @@ router.post('/registration', async (req, res) => {
   } = req.body;
   const hashedPass = await bcrypt.hash(pass, 10);
   const newUser = await User.create({
-    f_name: fName, l_name: lName, login, pass: hashedPass,
+    f_name: fName, l_name: lName, login, pass: hashedPass, is_admin: false
   });
   req.session.userId = newUser.id;
   req.session.userFirstName = newUser.f_name;
   req.session.userLastName = newUser.l_name;
   req.session.userLogin = newUser.login;
+  req.session.userIsadmin = newUser.is_admin;
   res.json();
 });
 
@@ -36,6 +37,8 @@ router.post('/login', async (req, res) => {
       req.session.userLastName = currUser.l_name;
       req.session.userLogin = currUser.login;
       req.session.userPass = currUser.pass;
+      req.session.userPass = currUser.pass;
+      req.session.userAdmin = currUser.is_admin;
       res.status(200).json(currUser.name);
     } else {
       res.sendStatus(401);
