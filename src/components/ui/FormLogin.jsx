@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function FormLogin() {
+  const navigate = useNavigate();
   const [inputs, setInputs] = useState({ login: '', password: '' });
   const inputHandler = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -15,7 +17,7 @@ export default function FormLogin() {
       body: JSON.stringify(inputs),
     });
     if (response.ok) {
-      console.log('Все верно');
+      navigate('/');
     } else {
       console.log('Неправильный логин или пароль');
     }
