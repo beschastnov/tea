@@ -8,4 +8,10 @@ router.get('/allteas', async (req, res) => {
   res.json(teas);
 });
 
+router.post('/addtea', async (req, res) => {
+  const newtea = req.body;
+  const newTea = await Tea.create(newtea);
+  res.json(newTea);
+});
+
 export default router;
