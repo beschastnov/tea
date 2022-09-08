@@ -7,10 +7,13 @@ import Main from './pages/Main';
 import AdminProfile from './pages/AdminProfile';
 
 
-function App({ allTeas }) {
+function App({ allTeas, userSession }) {
+
+  const [session, setSession] = useState(userSession || null);
+
   return (
     <>
-      <Header />
+      <Header session={session} setSession={setSession}/>
       <Routes>
         <Route path="/" element={<Main allTeas={allTeas} />} />
         <Route path="/registration" element={<Registration />} />
