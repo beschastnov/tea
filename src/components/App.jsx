@@ -13,7 +13,7 @@ function App({ allTeas, userSession, allComents }) {
 
   return (
     <>
-      <Header session={session} setSession={setSession}/>
+      <Header session={session} setSession={setSession} />
       <Routes>
         <Route path="/" element={<Main allTeas={allTeas} />} />
         <Route path="/teas" element={<Teas allTeas={allTeas} />} />
