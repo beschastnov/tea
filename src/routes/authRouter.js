@@ -2,7 +2,6 @@ import express from 'express';
 import bcrypt from 'bcrypt';
 import { User } from '../db/models';
 
-// const router = express.Router();
 const router = express.Router();
 
 router.get('/', async (req, res) => {
@@ -26,8 +25,8 @@ router.post('/registration', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   const { login, password } = req.body;
- const newUser = await User.findOne({ where: { login } });
- const compare = await bcrypt.compare(password, newUser.pass);
+  const newUser = await User.findOne({ where: { login } });
+  const compare = await bcrypt.compare(password, newUser.pass);
   if (compare) {
     req.session.userId = newUser.id;
     req.session.userLogin = newUser.email;

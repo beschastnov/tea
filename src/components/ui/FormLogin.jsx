@@ -29,13 +29,13 @@ export default function FormLogin({ session, setSession }) {
       <div className="form-group mb-3">
         <label htmlFor="exampleInputEmail1">
           Логин
-          <input onChange={inputHandler} name="login" type="text" className="form-control input" id="exampleInputEmail1" />
+          <input onChange={inputHandler} name="login" type="text" className="form-control input" />
         </label>
       </div>
       <div className="form-group mb-3">
         <label htmlFor="exampleInputPassword1">
           Пароль
-          <input onChange={inputHandler} name="password" type="password" className="form-control input" id="exampleInputPassword1" />
+          <input onChange={inputHandler} name="password" type="password" className="form-control input" />
         </label>
       </div>
       <button type="submit" className="btn btn-outline-success mb-3">Авторизоваться</button>

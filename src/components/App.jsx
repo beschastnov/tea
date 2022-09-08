@@ -8,7 +8,7 @@ import TeaCardPage from './pages/TeaCardPage';
 import Teas from './ui/Teas';
 import AdminProfile from './pages/AdminProfile';
 
-function App({ allTeas, userSession }) {
+function App({ allTeas, userSession, allComents }) {
   const [session, setSession] = useState(userSession);
 
   return (
