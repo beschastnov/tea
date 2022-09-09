@@ -20,7 +20,7 @@ router.post('/registration', async (req, res) => {
   req.session.userFirstName = newUser.f_name;
   req.session.userLastName = newUser.l_name;
   req.session.userLogin = newUser.login;
-  res.json();
+  res.json({ name: newUser.name, userAdmin: newUser.is_admin });
 });
 
 router.post('/login', async (req, res) => {
@@ -31,7 +31,7 @@ router.post('/login', async (req, res) => {
     req.session.userId = newUser.id;
     req.session.userLogin = newUser.email;
     req.session.userAdmin = newUser.is_admin;
-    res.json({ name: newUser.name, userAdmin: newUser.is_admin});
+    res.json({ name: newUser.name, userAdmin: newUser.is_admin });
   } else {
     res.sendStatus(401);
   }
