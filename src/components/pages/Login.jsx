@@ -14,7 +14,7 @@ function Login({ session, setSession }) {
         height: '400px',
       }}
     >
-      <Form session={session} setSession={setSession}/>
+      <Form session={session} setSession={setSession} />
     </div>
   );
 }

@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Header({ session, setSession }) {
+
   const navigate = useNavigate();
 
   const logoutHandler = async (e) => {
@@ -15,6 +16,7 @@ function Header({ session, setSession }) {
 
   return (
     <div>
+      {console.log(session)};
       <div className="header">
         <div className="container">
           <div className="header__content">
@@ -31,10 +33,14 @@ function Header({ session, setSession }) {
                     <li className="pipe-separate t-light-green left"><Link to="/registration">registration</Link></li>
                   </>
                 ) : (
-                  <>
-                    <li className="pipe-separate t-light-green left"><Link to="/adminprofile">adminka</Link></li>
-                    <li onClick={logoutHandler} className="pipe-separate t-light-green left"><Link to="/auth/logout">logout</Link></li>
-                  </>
+              <>
+                  {session.userAdmin ? (
+                    <>
+                  <li className="pipe-separate t-light-green left"><Link to="/adminprofile">adminka</Link></li>
+                  <li onClick={logoutHandler} className="pipe-separate t-light-green left"><Link to="/auth/logout">logout</Link></li>
+                  </>): (<li onClick={logoutHandler} className="pipe-separate t-light-green left"><Link to="/auth/logout">logout</Link></li>)}
+              </>
+              
                 )}
               </ul>
             </div>

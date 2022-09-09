@@ -4,7 +4,7 @@ import FormLogin from '../ui/FormLogin';
 import FormReg from '../ui/FormReg';
 import MapComp from '../ui/MapComp';
 
-function Main({ allTeas }) {
+function Main({ allTeas, session, setSession }) {
   const [teas, setTeas] = useState(allTeas || null);
 
   useEffect(() => {
@@ -28,24 +28,28 @@ function Main({ allTeas }) {
           <Card key={tea.id} tea={tea} />
         ))}
       </div>
-      <div className="authBlock">
-        <div
-          className="authBlock__container"
-          style={{
-            display: 'flex',
-            justifyContent: 'space-around',
-          }}
-        >
-          <div className="authBlock__leftBlock">
-            <h1>Зарегестрируйтесь</h1>
-            <FormReg />
-          </div>
-          <div className="authBlock__rightBlock">
-            <h1>Авторизуйтесь</h1>
-            <FormLogin />
+      {!session ? (
+        <div className="authBlock">
+          <div
+            className="authBlock__container"
+            style={{
+              display: 'flex',
+              justifyContent: 'space-around',
+            }}
+          >
+            <div className="authBlock__leftBlock">
+              <h1>Зарегестрируйтесь</h1>
+              <FormReg session={session} setSession={setSession} />
+            </div>
+            <div className="authBlock__rightBlock">
+              <h1>Авторизуйтесь</h1>
+              <FormLogin session={session} setSession={setSession} />
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        <></>
+      )}
       <div className="map">
         <MapComp allTeas={allTeas} />
       </div>
