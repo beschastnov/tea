@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import AllComentsInCardPage from '../ui/AllComentsInCardPage';
-import FormAddComent from '../ui/FormAddComent';
 
 export default function TeaCardPage({ allComents, session, setSession }) {
   const [oneTea, setOneTea] = useState({});
