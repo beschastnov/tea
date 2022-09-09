@@ -15,7 +15,6 @@ function Header({ session, setSession }) {
 
   return (
     <div>
-      {console.log(session)}
       <div className="header">
         <div className="container">
           <div className="header__content">
@@ -36,9 +35,15 @@ function Header({ session, setSession }) {
                     {session.userAdmin ? (
                       <>
                         <li className="pipe-separate t-light-green left"><Link to="/adminprofile">adminka</Link></li>
+                        <li className="pipe-separate t-light-green left"><Link to="/teas">Чаи мира</Link></li>
                         <li onClick={logoutHandler} className="pipe-separate t-light-green left"><Link to="/auth/logout">logout</Link></li>
                       </>
-                    ) : (<li onClick={logoutHandler} className="pipe-separate t-light-green left"><Link to="/auth/logout">logout</Link></li>)}
+                    ) : (
+                      <>
+                    <li className="pipe-separate t-light-green left"><Link to="/teas">Чаи мира</Link></li>
+                    <li onClick={logoutHandler} className="pipe-separate t-light-green left"><Link to="/auth/logout">logout</Link></li>
+                    </>
+                    )}
                   </div>
 
                 )}

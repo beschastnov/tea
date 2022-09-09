@@ -11,6 +11,14 @@ export default function AllComentsInCardPage({
       .then((res) => res.json())
       .then((data) => setComentArr(data));
   }, []);
+
+  const deleteHandler = async (id) => {
+    const response = await fetch(`/api/delete/${id}`, { method: 'delete' });
+    if (response.ok) {
+      setComentArr((prev) => prev.filter((el) => el.id !== id));
+    }
+  };
+
   return (
     <div>
       {session ? (
@@ -18,7 +26,7 @@ export default function AllComentsInCardPage({
       ) : (<></>)}
       {comentArr ? comentArr.map((el) => (
         <div key={`${el.id}-${el.text}`}>
-          <ComentCard el={el} />
+          <ComentCard el={el} deleteHandler={deleteHandler} session={session} setSession={setSession} />
           {' '}
         </div>
       )) : 'ничего нет'}
