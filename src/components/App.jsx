@@ -9,20 +9,17 @@ import Teas from './ui/Teas';
 import AdminProfile from './pages/AdminProfile';
 
 function App({ allTeas, userSession, allComents }) {
-
-  console.log(userSession)
-
   const [session, setSession] = useState(userSession);
 
   return (
     <>
       <Header session={session} setSession={setSession} />
       <Routes>
-        <Route path="/" element={<Main allTeas={allTeas} session={session} setSession={setSession}/>} />
+        <Route path="/" element={<Main allTeas={allTeas} session={session} setSession={setSession} />} />
         <Route path="/teas" element={<Teas allTeas={allTeas} />} />
         <Route path="/registration" element={<Registration session={session} setSession={setSession} />} />
         <Route path="/login" element={<Login session={session} setSession={setSession} />} />
-        <Route path="/tea/:id" element={<TeaCardPage allComents={allComents} />} />
+        <Route path="/tea/:id" element={<TeaCardPage allComents={allComents} session={session} setSession={setSession} />} />
         <Route path="/adminprofile" element={<AdminProfile />} />
 
       </Routes>

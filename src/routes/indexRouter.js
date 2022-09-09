@@ -7,7 +7,6 @@ import { Tea, User, Coment } from '../db/models';
 const router = express.Router();
 
 router.get('/', async (req, res) => {
-  const userSession = req.session;
   const allTeas = await Tea.findAll();
   const initState = { path: req.originalUrl, allTeas };
   const layout = React.createElement(Layout, { initState });
