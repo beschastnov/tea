@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import AllComentsInCardPage from '../ui/AllComentsInCardPage';
 import FormAddComent from '../ui/FormAddComent';
 
-export default function TeaCardPage({ allComents }) {
+export default function TeaCardPage({ allComents, session, setSession }) {
   const [oneTea, setOneTea] = useState({});
   const { id } = useParams();
   useEffect(() => {
@@ -18,7 +18,7 @@ export default function TeaCardPage({ allComents }) {
       <div>{oneTea.info}</div>
       <div><img src={oneTea.img} alt="" /></div>
       <div>
-        <AllComentsInCardPage allComents={allComents} teaId={id} />
+        <AllComentsInCardPage allComents={allComents} teaId={id} session={session} setSession={setSession} />
       </div>
     </>
 
