@@ -10,7 +10,7 @@ import AdminProfile from './pages/AdminProfile';
 import Footer from './ui/Footer';
 
 function App({ allTeas, userSession, allComents }) {
-  const [session, setSession] = useState(userSession);
+  const [session, setSession] = useState(userSession || null);
 
   return (
     <>
