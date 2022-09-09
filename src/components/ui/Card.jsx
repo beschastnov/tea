@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Card({ tea }) {
+function Card({ tea, deleteHandler, session, setSession }) {
   return (
     <div>
       <div className="card" style={{ width: '18rem' }}>
@@ -12,6 +12,9 @@ function Card({ tea }) {
         </div>
         <div className="card-body">
           <Link to={`/tea/${tea.id}`} className="card-link">Card link</Link>
+          {session?.userAdmin ? (
+          <button onClick={() => deleteHandler(tea.id)} className="card-link">Удалить чай</button>
+          ) : (<></>)}
         </div>
       </div>
     </div>
