@@ -51,4 +51,11 @@ router.delete('/delete/:id', userCheck, async (req, res) => {
   res.sendStatus(200);
 });
 
+router.delete('/delete/tea/:id', async (req, res) => {
+  const { id } = req.params;
+  console.log(id);
+  await Coment.destroy({ where: { id } });
+  res.sendStatus(200);
+});
+
 export default router;

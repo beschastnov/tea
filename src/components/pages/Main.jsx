@@ -23,6 +23,7 @@ function Main({ allTeas, session, setSession }) {
         display: 'flex',
         justifyContent: 'space-around',
         marginBottom: '50px',
+        height: '600px',
       }}
       >
         {teas?.map((tea) => (
