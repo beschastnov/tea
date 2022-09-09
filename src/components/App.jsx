@@ -7,6 +7,7 @@ import Main from './pages/Main';
 import TeaCardPage from './pages/TeaCardPage';
 import Teas from './ui/Teas';
 import AdminProfile from './pages/AdminProfile';
+import Footer from './ui/Footer';
 
 function App({ allTeas, userSession, allComents }) {
   const [session, setSession] = useState(userSession);
@@ -21,8 +22,8 @@ function App({ allTeas, userSession, allComents }) {
         <Route path="/login" element={<Login session={session} setSession={setSession} />} />
         <Route path="/tea/:id" element={<TeaCardPage allComents={allComents} session={session} setSession={setSession} />} />
         <Route path="/adminprofile" element={<AdminProfile />} />
-
       </Routes>
+      <Footer session={session} setSession={setSession} />
     </>
   );
 }
