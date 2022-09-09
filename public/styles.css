@@ -175,3 +175,10 @@ h6 {
   margin: auto;
 }
 
+.main__block{
+  height:100%;
+}
+
+.form-block {
+  height:100vh;
+}

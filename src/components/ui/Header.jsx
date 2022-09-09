@@ -14,7 +14,9 @@ function Header({ session, setSession }) {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{
+      marginBottom: "0px"
+    }}>
       <Link class="navbar-brand" to="/">
         <img src="https://images.squarespace-cdn.com/content/v1/60d0c4dac6973748d5d9a7f5/1624916195210-MO3DSK8SGUW508HG14QN/WEBLOGO.png" width="30" height="30" className="d-inline-block align-top" alt="" />
         Чайный пакетик

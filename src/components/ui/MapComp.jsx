@@ -14,7 +14,7 @@ export default function MapComp({ allTeas }) {
         }}
         modules={['control.ZoomControl', 'control.FullscreenControl']}
       >
-        {allTeasArr.map((el) => (
+        {allTeasArr?.map((el) => (
           <Placemark
             defaultGeometry={el.place.split(',').map((el2) => +(el2))}
             options={

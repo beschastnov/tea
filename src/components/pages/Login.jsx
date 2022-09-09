@@ -11,7 +11,6 @@ function Login({ session, setSession }) {
         alignItems: 'center',
         marginTop: '10%',
         width: '600px',
-        height: '400px',
       }}
     >
       <Form session={session} setSession={setSession} />

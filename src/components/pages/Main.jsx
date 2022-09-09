@@ -15,7 +15,7 @@ function Main({ allTeas, session, setSession }) {
 
   return (
     <>
-      <div>
+      <div className="main__block">
         <h1>Добро пожаловать на сайт Чайный дом</h1>
         <h1>Пoзнакомьтесь с нашим ассортиментом</h1>
       </div>

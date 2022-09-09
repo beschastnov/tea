@@ -27,7 +27,7 @@ function Footer({ session, setSession }) {
             <Link class="nav-link" to="/teas">Чаи мира</Link>
           </li>
           <li className="nav-item">
-            <Link class="nav-link disabled" to="/registration">Регистрация</Link>
+            <Link class="nav-link" to="/registration">Регистрация</Link>
           </li>
         </>
       ) : (
@@ -35,22 +35,22 @@ function Footer({ session, setSession }) {
           {session.userAdmin ? (
             <>
               <li className="nav-item">
-                <Link class="nav-link disabled" to="/adminprofile">Администрирование</Link>
+                <Link class="nav-link" to="/adminprofile">Администрирование</Link>
               </li>
               <li className="nav-item">
-                <Link class="nav-link disabled" to="/teas">Чаи мира</Link>
+                <Link class="nav-link" to="/teas">Чаи мира</Link>
               </li>
               <li className="nav-item">
-                <Link onClick={logoutHandler} class="nav-link disabled" to="/auth/logout">Выйти</Link>
+                <Link onClick={logoutHandler} class="nav-link" to="/auth/logout">Выйти</Link>
               </li>
             </>
           ) : (
             <>
               <li className="nav-item">
-                <Link class="nav-link disabled" to="/teas">Чаи мира</Link>
+                <Link class="nav-link" to="/teas">Чаи мира</Link>
               </li>
               <li className="nav-item">
-                <Link onClick={logoutHandler} class="nav-link disabled" to="/auth/logout">Выйти</Link>
+                <Link onClick={logoutHandler} class="nav-link" to="/auth/logout">Выйти</Link>
               </li>
             </>
           )}
