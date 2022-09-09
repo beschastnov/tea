@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 function Header({ session, setSession }) {
@@ -14,45 +14,57 @@ function Header({ session, setSession }) {
   };
 
   return (
-    <div>
-      <div className="header">
-        <div className="container">
-          <div className="header__content">
-            <div className="header__left-block">
-              <Link to="/"><img src="https://images.squarespace-cdn.com/content/v1/60d0c4dac6973748d5d9a7f5/1624916195210-MO3DSK8SGUW508HG14QN/WEBLOGO.png" /></Link>
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <Link class="navbar-brand" to="/">
+        <img src="https://images.squarespace-cdn.com/content/v1/60d0c4dac6973748d5d9a7f5/1624916195210-MO3DSK8SGUW508HG14QN/WEBLOGO.png" width="30" height="30" className="d-inline-block align-top" alt="" />
+        Чайный пакетик
+      </Link>
+      <div className="collapse navbar-collapse" id="navbarNav">
+        <ul className="navbar-nav">
+          {!session ? (
+            <>
+              <li className="nav-item">
+                <Link class="nav-link" to="/">Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link class="nav-link" to="/login">Логин</Link>
+              </li>
+              <li className="nav-item">
+                <Link class="nav-link" to="/teas">Чаи мира</Link>
+              </li>
+              <li className="nav-item">
+                <Link class="nav-link" to="/registration">Регистрация</Link>
+              </li>
+            </>
+          ) : (
+            <div>
+              {session.userAdmin ? (
+                <>
+                  <li className="nav-item">
+                    <Link class="nav-link" to="/adminprofile">Администрирование</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link class="nav-link" to="/teas">Чаи мира</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link onClick={logoutHandler} class="nav-link" to="/auth/logout">Выйти</Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li className="nav-item">
+                    <Link class="nav-link" to="/teas">Чаи мира</Link>
+                  </li>
+                  <li className="nav-item">
+                    <Link onClick={logoutHandler} class="nav-link" to="/auth/logout">Выйти</Link>
+                  </li>
+                </>
+              )}
             </div>
-            <div className="header__right-block">
-              <ul className="no-bullets no-margin no-padding right">
-                {!session ? (
-                  <>
-                    <li className="pipe-separate t-light-green left"><Link to="/teas">Чаи мира</Link></li>
-                    <li className="pipe-separate t-light-green left"><Link to="/">home</Link></li>
-                    <li className="pipe-separate t-light-green left"><Link to="/login">login</Link></li>
-                    <li className="pipe-separate t-light-green left"><Link to="/registration">registration</Link></li>
-                  </>
-                ) : (
-                  <div>
-                    {session.userAdmin ? (
-                      <>
-                        <li className="pipe-separate t-light-green left"><Link to="/adminprofile">adminka</Link></li>
-                        <li className="pipe-separate t-light-green left"><Link to="/teas">Чаи мира</Link></li>
-                        <li onClick={logoutHandler} className="pipe-separate t-light-green left"><Link to="/auth/logout">logout</Link></li>
-                      </>
-                    ) : (
-                      <>
-                    <li className="pipe-separate t-light-green left"><Link to="/teas">Чаи мира</Link></li>
-                    <li onClick={logoutHandler} className="pipe-separate t-light-green left"><Link to="/auth/logout">logout</Link></li>
-                    </>
-                    )}
-                  </div>
-
-                )}
-              </ul>
-            </div>
-          </div>
-        </div>
+          )}
+        </ul>
       </div>
-    </div>
+    </nav>
   );
 }
 
