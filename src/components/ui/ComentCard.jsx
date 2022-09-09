@@ -5,7 +5,7 @@ export default function ComentCard({
 }) {
   return (
 
-    <div className="card">
+    <div className="card" style={{ width: '30rem', marginBottom: '20px' }}>
       <div className="card-header" />
       <div className="card-body">
         <p className="card-text">{el.text}</p>

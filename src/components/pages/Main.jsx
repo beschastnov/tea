@@ -17,11 +17,12 @@ function Main({ allTeas, session, setSession }) {
     <>
       <div className="main__block">
         <h1>Добро пожаловать на сайт Чайный дом</h1>
-        <h1>Пoзнакомьтесь с нашим ассортиментом</h1>
+        <h1>Популярные позиции</h1>
       </div>
       <div style={{
         display: 'flex',
         justifyContent: 'space-around',
+        marginBottom: '50px',
       }}
       >
         {teas?.map((tea) => (
@@ -50,7 +51,7 @@ function Main({ allTeas, session, setSession }) {
       ) : (
         <></>
       )}
-      <div className="map">
+      <div className="map" style={{ marginTop: '50px' }}>
         <MapComp allTeas={allTeas} />
       </div>
     </>

@@ -20,7 +20,7 @@ export default function AllComentsInCardPage({
   };
 
   return (
-    <div>
+    <div style={{ width: '450px' }}>
       {session ? (
         <FormAddComent id={teaId} setComentArr={setComentArr} />
       ) : (<></>)}
