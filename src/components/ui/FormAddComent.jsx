@@ -3,22 +3,19 @@ import React, { useState } from 'react';
 export default function FormAddComent({ id, setComentArr }) {
   const [inputComent, setInputComment] = useState('');
   const inputHandler = (e) => {
-    setInputComment((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setInputComment(e.target.value);
   };
-  const submitHandler = async (e) => {
+  const submitHandler = (e) => {
     e.preventDefault();
-    const response = await fetch('/api/add/comment', {
+    fetch('/api/add/comment', {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
       },
       body: JSON.stringify({ coment: inputComent, teaId: id }),
-    });
-    if (response.ok) {
-      const data = await response.json();
-      setInputComment(data);
-      setInputComment('');
-    }
+    })
+      .then((res) => res.json())
+      .then((data) => setComentArr((prev) => [...prev, data]));
   };
   return (
     <form onSubmit={submitHandler}>
