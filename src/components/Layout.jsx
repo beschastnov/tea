@@ -16,7 +16,7 @@ function Layout({ initState }) {
         <script defer src="/app.js" />
         <script defer src="/vendor.js" />
         <link rel="stylesheet" href="/styles.css" />
-        <title>Document</title>
+        <title>Чайный пакетик</title>
       </head>
       <body>
         <div id="root">
