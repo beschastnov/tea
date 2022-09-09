@@ -1,5 +1,6 @@
 import express from 'express';
 import { Tea, Coment } from '../db/models';
+import userCheck from '../middlewares/userCheck';
 
 const router = express.Router();
 
@@ -42,6 +43,12 @@ router.post('/addtea', async (req, res) => {
   const newtea = req.body;
   const newTea = await Tea.create(newtea);
   res.json(newTea);
+});
+
+router.delete('/delete/:id', userCheck, async (req, res) => {
+  const { id } = req.params;
+  await Coment.destroy({ where: { id } });
+  res.sendStatus(200);
 });
 
 export default router;
