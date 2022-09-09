@@ -9,7 +9,7 @@ const router = express.Router();
 router.get('/', async (req, res) => {
   const userSession = req.session;
   const allTeas = await Tea.findAll();
-  const initState = { path: req.originalUrl, allTeas, userSession };
+  const initState = { path: req.originalUrl, allTeas };
   const layout = React.createElement(Layout, { initState });
   const html = renderToString(layout);
   res.write('<!DOCTYPE html>');
