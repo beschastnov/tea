@@ -9,8 +9,6 @@ function Login({ session, setSession }) {
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        marginTop: '10%',
-        width: '600px',
       }}
     >
       <Form session={session} setSession={setSession} />
