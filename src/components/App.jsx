@@ -17,7 +17,7 @@ function App({ allTeas, userSession, allComents }) {
       <Header session={session} setSession={setSession} />
       <Routes>
         <Route path="/" element={<Main allTeas={allTeas} session={session} setSession={setSession} />} />
-        <Route path="/teas" element={<Teas allTeas={allTeas} />} />
+        <Route path="/teas" element={<Teas allTeas={allTeas} session={session} setSession={setSession} />} />
         <Route path="/registration" element={<Registration session={session} setSession={setSession} />} />
         <Route path="/login" element={<Login session={session} setSession={setSession} />} />
         <Route path="/tea/:id" element={<TeaCardPage allComents={allComents} session={session} setSession={setSession} />} />
